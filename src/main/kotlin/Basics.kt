@@ -10,7 +10,43 @@ fun main() {
 }
 
 fun workWithClasses() {
-    val myCar= Car("Seat")
+    //Creación de motores
+    val motor1 = Car.Engine("Ferrari", 2000)
+    val motor2 = Car.Engine("Opel",3000)
+    val motor3 = Car.Engine("Ford",5000)
+
+
+    //Creación de coches
+    val fiatCar = Car("Fiat","500",1953,motor1)
+    val porscheCar = Car("Porsche")
+    porscheCar.model="911"
+    porscheCar.year=1965
+    porscheCar.engine=motor1
+    val fordCar = Car("Ford", "Mustang", 1964, motor2)
+    val mercedesCar = Car("Mercedes", "Gullwing", 1954, motor2)
+    val volksCar = Car("Volkswagen", "Beetle", 1978, motor2)
+    val jaguarCar = Car("Jaguar","E-Type",1961, motor3)
+
+    //Creación de seguros.
+    val insurance1 = fiatCar.InsuranceCarrier(Insurance.MAPFRE,3000f)
+    val insurance2 = porscheCar.InsuranceCarrier(Insurance.ALLIANZ,2500f)
+    val insurance3 = fordCar.InsuranceCarrier(Insurance.MUTUA, 1800f)
+    val insurance4 = mercedesCar.InsuranceCarrier(Insurance.VERTI, 800f)
+    val insurance5 = volksCar.InsuranceCarrier(Insurance.MAPFRE,2200f)
+    val insurance6 = jaguarCar.InsuranceCarrier(Insurance.MUTUA,5000.50f)
+
+    println(insurance1.Amount)
+    println(insurance2.Amount)
+    println(insurance3.Amount)
+    println(insurance4.Amount)
+    println(insurance5.Amount)
+    println(insurance6.Amount)
+
+
+    //Creación de programadores
+    val master1 = Programmer("Santos",39, mutableListOf(fiatCar,porscheCar),ProgrammingLang.KOTLIN)
+    println(master1)
+
 }
 
 fun basics() {
