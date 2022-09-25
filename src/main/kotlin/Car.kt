@@ -1,4 +1,4 @@
-class Car(brand : String) {
+class Car(brand : String) : Vehicle {
 
     //Al declararlo en el cuerpo de la clase, en su constructor no puede declararse, aunque sí llamarse por lo que no lleva "val"
     private val brand: String
@@ -34,4 +34,13 @@ class Car(brand : String) {
         val Amount : String
             get() = "El precio del seguro del coche $brand $model del año $year es ${amount} euros."
     }
+
+    //Implementaciones de la interfaz.
+    override val vehicle: String
+        get() = "coche: $brand $model del año $year"
+
+    override fun navigate() {
+        println("El coche está circulando por la carretera.")
+    }
+
 }
