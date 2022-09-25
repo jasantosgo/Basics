@@ -47,6 +47,25 @@ fun workWithClasses() {
     val master1 = Programmer("Santos",39, mutableListOf(fiatCar,porscheCar),ProgrammingLang.KOTLIN)
     println(master1)
 
+    val powerCar = getPowerCar(master1) { prog ->
+        var powerCar : Car? = null
+        prog.CarList.forEach {car ->
+            if(powerCar==null)
+                powerCar = car
+            else{
+                if(powerCar!!.engine!!.HorsePower < car.engine!!.HorsePower)
+                    powerCar = car
+                else if(powerCar!!.engine!!.HorsePower == car.engine!!.HorsePower && powerCar!!.year!! < car.year!!)
+                    powerCar = car
+            }
+        }
+        var powerCarString = "No tiene ningún coche."
+        powerCar?.let {
+            powerCarString = "El coche más potente es $it"
+        }
+        powerCarString
+    }
+    println(powerCar)
 }
 
 fun basics() {
@@ -123,4 +142,8 @@ fun basics() {
 
 private fun lambdaListFun (list : IntRange, operateList: (list : IntRange)->Int) : Int {
     return operateList(list)
+}
+
+private fun getPowerCar (programmer : Programmer, getCar: (programmer : Programmer) -> String) : String {
+    return getCar(programmer)
 }

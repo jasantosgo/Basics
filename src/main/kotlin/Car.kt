@@ -37,6 +37,8 @@ class Car(brand : String) : Vehicle {
             get() = myInsurance.title
         val Amount : String
             get() = "El precio del seguro del coche $brand $model del año $year es ${amount} euros. La aseguradora es $MyInsurance"
+        val AmountFloat : Float
+            get() = amount
     }
 
     //Implementaciones de la interfaz.

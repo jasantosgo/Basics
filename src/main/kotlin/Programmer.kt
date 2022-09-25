@@ -1,6 +1,7 @@
-class Programmer(nombre: String, edad: Int, carsList : MutableList<Car>, private val language : ProgrammingLang) : Person(nombre, edad, carsList) {
+class Programmer(name: String, age: Int, carsList : MutableList<Car>, private val language : ProgrammingLang) : Person(name, age, carsList) {
 
     private var programsCreated : MutableList<String> = mutableListOf()
+
 
     override fun introducePerson() {
         super.introducePerson()
